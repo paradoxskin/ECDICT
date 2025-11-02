@@ -51,7 +51,7 @@ def main():
         else:
             res = "not found"
         with open("history", "a+") as hist:
-            hist.write(line, "\n")
+            hist.write(line+"\n")
         with open(ffw, "w") as out:
             out.write(res+"\n")
 
