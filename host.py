@@ -21,7 +21,7 @@ def main():
     dt = stardict.StarDict(sql)
     def query_once(idx):
         once = dt.query(idx)
-        return f"=> {once["word"]}\n{once["translation"]}"
+        return f"=> {once['word']}\n{once['translation']}"
     # - fifo in
     if os.path.exists(ffr):
         os.remove(ffr)
