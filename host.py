@@ -26,15 +26,15 @@ def main():
     if os.path.exists(ffr):
         os.remove(ffr)
     os.mkfifo(ffr)
-    fdr = open(ffr, "r")
     # - fifo out
     if os.path.exists(ffw):
         os.remove(ffw)
     os.mkfifo(ffw)
     # main loop
     while True:
-        line = fdr.readline()
-        line = line.replace("\n", "")
+        with open(ffr, "r") as fdr:
+            line = fdr.readline()
+            line = line.replace("\n", "")
         if not line:
             continue
         mat = dt.match(line)
